@@ -10,4 +10,7 @@ export class User {
 
   @Column()
   password: string;
+
+  @Column({ name: 'zip_code', nullable: true })
+  zipCode: string;
 }
