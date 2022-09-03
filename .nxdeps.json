@@ -1,0 +1,575 @@
+{
+  "graph": {
+    "nodes": {
+      "demo-e2e": {
+        "name": "demo-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/demo-e2e",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/demo-e2e/src",
+          "projectType": "application",
+          "targets": {
+            "e2e": {
+              "executor": "@nrwl/cypress:cypress",
+              "options": {
+                "cypressConfig": "apps/demo-e2e/cypress.json",
+                "devServerTarget": "demo:serve:development"
+              },
+              "configurations": {
+                "production": {
+                  "devServerTarget": "demo:serve:production"
+                }
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "apps/demo-e2e/**/*.{js,ts}"
+                ]
+              }
+            }
+          },
+          "tags": [],
+          "implicitDependencies": [
+            "demo"
+          ],
+          "files": [
+            {
+              "file": "apps/demo-e2e/.eslintrc.json",
+              "hash": "4c5989b23b5aa8cc7aba2a07d1ae7daee19c1555"
+            },
+            {
+              "file": "apps/demo-e2e/cypress.json",
+              "hash": "f5d8e7a8f5afbdfbf02865186c23ff8f8cb79eb4"
+            },
+            {
+              "file": "apps/demo-e2e/project.json",
+              "hash": "77bacca4116a06db922c245d56aefdbe1188d4f9"
+            },
+            {
+              "file": "apps/demo-e2e/src/fixtures/example.json",
+              "hash": "294cbed6ce9e0b948b787452e8676aee486cb3be"
+            },
+            {
+              "file": "apps/demo-e2e/src/integration/app.spec.ts",
+              "hash": "b2186cf1626f4bbf6e6ff84d634bfc4da8555824"
+            },
+            {
+              "file": "apps/demo-e2e/src/support/app.po.ts",
+              "hash": "32934246969c2ecb827ac05677785933a707a54d"
+            },
+            {
+              "file": "apps/demo-e2e/src/support/commands.ts",
+              "hash": "310f1fa0e043ffebbbcf575c5a4d17f13a6b14d6"
+            },
+            {
+              "file": "apps/demo-e2e/src/support/index.ts",
+              "hash": "3d469a6b6cf31eb66117d73e278bcf74f398f1db"
+            },
+            {
+              "file": "apps/demo-e2e/tsconfig.json",
+              "hash": "eed477927cc7ae6bd893346f66121ea1338218e1"
+            }
+          ]
+        }
+      },
+      "demo": {
+        "name": "demo",
+        "type": "app",
+        "data": {
+          "root": "apps/demo",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "projectType": "application",
+          "sourceRoot": "apps/demo/src",
+          "prefix": "was-it",
+          "targets": {
+            "build": {
+              "executor": "@angular-devkit/build-angular:browser",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "dist/apps/demo",
+                "index": "apps/demo/src/index.html",
+                "main": "apps/demo/src/main.ts",
+                "polyfills": "apps/demo/src/polyfills.ts",
+                "tsConfig": "apps/demo/tsconfig.app.json",
+                "inlineStyleLanguage": "scss",
+                "assets": [
+                  "apps/demo/src/favicon.ico",
+                  "apps/demo/src/assets"
+                ],
+                "styles": [
+                  "apps/demo/src/styles.scss"
+                ],
+                "scripts": []
+              },
+              "configurations": {
+                "production": {
+                  "budgets": [
+                    {
+                      "type": "initial",
+                      "maximumWarning": "500kb",
+                      "maximumError": "1mb"
+                    },
+                    {
+                      "type": "anyComponentStyle",
+                      "maximumWarning": "2kb",
+                      "maximumError": "4kb"
+                    }
+                  ],
+                  "fileReplacements": [
+                    {
+                      "replace": "apps/demo/src/environments/environment.ts",
+                      "with": "apps/demo/src/environments/environment.prod.ts"
+                    }
+                  ],
+                  "outputHashing": "all"
+                },
+                "development": {
+                  "buildOptimizer": false,
+                  "optimization": false,
+                  "vendorChunk": true,
+                  "extractLicenses": false,
+                  "sourceMap": true,
+                  "namedChunks": true
+                }
+              },
+              "defaultConfiguration": "production",
+              "dependsOn": [
+                "^build"
+              ]
+            },
+            "serve": {
+              "executor": "@angular-devkit/build-angular:dev-server",
+              "configurations": {
+                "production": {
+                  "browserTarget": "demo:build:production"
+                },
+                "development": {
+                  "browserTarget": "demo:build:development"
+                }
+              },
+              "defaultConfiguration": "development",
+              "options": {
+                "proxyConfig": "apps/demo/proxy.conf.json"
+              }
+            },
+            "extract-i18n": {
+              "executor": "@angular-devkit/build-angular:extract-i18n",
+              "options": {
+                "browserTarget": "demo:build"
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "options": {
+                "lintFilePatterns": [
+                  "apps/demo/src/**/*.ts",
+                  "apps/demo/src/**/*.html"
+                ]
+              }
+            },
+            "test": {
+              "executor": "@nrwl/jest:jest",
+              "outputs": [
+                "coverage/apps/demo"
+              ],
+              "options": {
+                "jestConfig": "apps/demo/jest.config.ts",
+                "passWithNoTests": true
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/demo/.browserslistrc",
+              "hash": "4f9ac26980c156a3d525267010d5f78144b43519"
+            },
+            {
+              "file": "apps/demo/.eslintrc.json",
+              "hash": "d66edd267e3aad88d92042d1a0460e2ac9d8b8a8"
+            },
+            {
+              "file": "apps/demo/jest.config.ts",
+              "hash": "cbdcf73c2a441fec8dc5bc76f5b01fc6b2b27297"
+            },
+            {
+              "file": "apps/demo/project.json",
+              "hash": "18c2fea23de8f6312d4e28cfc2b9a06964976a7d"
+            },
+            {
+              "file": "apps/demo/proxy.conf.json",
+              "hash": "62a1e7b762cec5ece007e8e21daaf5eb141e0e7b"
+            },
+            {
+              "file": "apps/demo/src/app/app.component.html",
+              "hash": "502f022a2d1c586d53bff0abde03d2960f28671a"
+            },
+            {
+              "file": "apps/demo/src/app/app.component.scss",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/demo/src/app/app.component.spec.ts",
+              "hash": "46fc944e7f83c669cc9b4e0e7c26568d022de125",
+              "deps": [
+                "npm:@angular/core"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/app.component.ts",
+              "hash": "9e1c17aa10c2528f9800cb430a704c72f6be031c",
+              "deps": [
+                "npm:@angular/core"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/app.module.ts",
+              "hash": "ca4cff2f830a9ae53ecd2ee9e5ecff7282c211f6",
+              "deps": [
+                "npm:@angular/core",
+                "npm:@angular/platform-browser"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/nx-welcome.component.ts",
+              "hash": "6483d41d841b47464bca34ec5227dd89f07e7802",
+              "deps": [
+                "npm:@angular/core"
+              ]
+            },
+            {
+              "file": "apps/demo/src/assets/.gitkeep",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/demo/src/environments/environment.prod.ts",
+              "hash": "c9669790be176ac85a5d8c11278875c2f52dc507"
+            },
+            {
+              "file": "apps/demo/src/environments/environment.ts",
+              "hash": "66998ae9a7c27359bc473c6d2aa0029dd1f4b700"
+            },
+            {
+              "file": "apps/demo/src/favicon.ico",
+              "hash": "317ebcb2336e0833a22dddf0ab287849f26fda57"
+            },
+            {
+              "file": "apps/demo/src/index.html",
+              "hash": "4c2e025d4ec10bb610105897e5e80cfe4ef8bd94"
+            },
+            {
+              "file": "apps/demo/src/main.ts",
+              "hash": "d9a2e7e4a582e265db779363bd8b2492c43c141b",
+              "deps": [
+                "npm:@angular/core",
+                "npm:@angular/platform-browser-dynamic"
+              ]
+            },
+            {
+              "file": "apps/demo/src/polyfills.ts",
+              "hash": "e4555ed11fa2f217b8e4c744d564da4f7388b4c4",
+              "deps": [
+                "npm:zone.js"
+              ]
+            },
+            {
+              "file": "apps/demo/src/styles.scss",
+              "hash": "90d4ee0072ce3fc41812f8af910219f9eea3c3de"
+            },
+            {
+              "file": "apps/demo/src/test-setup.ts",
+              "hash": "1100b3e8a6ed08f4b5c27a96471846d57023c320",
+              "deps": [
+                "npm:jest-preset-angular"
+              ]
+            },
+            {
+              "file": "apps/demo/tsconfig.app.json",
+              "hash": "c502860122312dc861dabb2e6b086865cdedb697"
+            },
+            {
+              "file": "apps/demo/tsconfig.editor.json",
+              "hash": "20c4afdbf437457984afcb236d4b5e588aec858a"
+            },
+            {
+              "file": "apps/demo/tsconfig.json",
+              "hash": "7e6864688d2503577a6f3a5e6f26f85d2a880655"
+            },
+            {
+              "file": "apps/demo/tsconfig.spec.json",
+              "hash": "b2cc6087b90381e298ae0ec73122495a67284795"
+            }
+          ]
+        }
+      },
+      "api": {
+        "name": "api",
+        "type": "app",
+        "data": {
+          "root": "apps/api",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/api/src",
+          "projectType": "application",
+          "targets": {
+            "build": {
+              "executor": "@nrwl/node:webpack",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "dist/apps/api",
+                "main": "apps/api/src/main.ts",
+                "tsConfig": "apps/api/tsconfig.app.json",
+                "assets": [
+                  "apps/api/src/assets"
+                ]
+              },
+              "configurations": {
+                "production": {
+                  "optimization": true,
+                  "extractLicenses": true,
+                  "inspect": false,
+                  "fileReplacements": [
+                    {
+                      "replace": "apps/api/src/environments/environment.ts",
+                      "with": "apps/api/src/environments/environment.prod.ts"
+                    }
+                  ]
+                }
+              },
+              "dependsOn": [
+                "^build"
+              ]
+            },
+            "serve": {
+              "executor": "@nrwl/node:node",
+              "options": {
+                "buildTarget": "api:build"
+              },
+              "configurations": {
+                "production": {
+                  "buildTarget": "api:build:production"
+                }
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "apps/api/**/*.ts"
+                ]
+              }
+            },
+            "test": {
+              "executor": "@nrwl/jest:jest",
+              "outputs": [
+                "coverage/apps/api"
+              ],
+              "options": {
+                "jestConfig": "apps/api/jest.config.ts",
+                "passWithNoTests": true
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/api/.eslintrc.json",
+              "hash": "9d9c0db55bb1e91c5f2e7b64a02bc6bf69fc7cb5"
+            },
+            {
+              "file": "apps/api/jest.config.ts",
+              "hash": "d8f47750a856dd0c1c731c1100998d3cda3e492b"
+            },
+            {
+              "file": "apps/api/project.json",
+              "hash": "70c0a3e6d112692d7440a8d7121adc1d9f8fd5bb"
+            },
+            {
+              "file": "apps/api/src/app/.gitkeep",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/api/src/app/app.controller.spec.ts",
+              "hash": "b991ea7f5b756d6dfb0cac8bbe18eaa966877ec0",
+              "deps": [
+                "npm:@nestjs/testing"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/app.controller.ts",
+              "hash": "87586778026217e7c87358c42ad6e26360fc9590",
+              "deps": [
+                "npm:@nestjs/common"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/app.module.ts",
+              "hash": "3122a7711e7f22a1236f280e34289e884fd6f4fd",
+              "deps": [
+                "npm:@nestjs/common",
+                "npm:@nestjs/typeorm"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/app.service.spec.ts",
+              "hash": "884b5c908fce5944d49acd37b35ee54b7d094b47",
+              "deps": [
+                "npm:@nestjs/testing"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/app.service.ts",
+              "hash": "c87707c032b402042f88fb4725489c6870bc3801",
+              "deps": [
+                "npm:@nestjs/common"
+              ]
+            },
+            {
+              "file": "apps/api/src/assets/.gitkeep",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/api/src/environments/environment.prod.ts",
+              "hash": "c9669790be176ac85a5d8c11278875c2f52dc507"
+            },
+            {
+              "file": "apps/api/src/environments/environment.ts",
+              "hash": "a20cfe55731540eac839ab33f9ce1eaa6da50b16"
+            },
+            {
+              "file": "apps/api/src/main.ts",
+              "hash": "2268b6e1a2f4bc6860e8855f9425d3c432514cdb",
+              "deps": [
+                "npm:@nestjs/common",
+                "npm:@nestjs/core"
+              ]
+            },
+            {
+              "file": "apps/api/src/reports/reports.controller.spec.ts",
+              "hash": "f3c142bbc2570fc1dbd83b1327043f4f320cb34e",
+              "deps": [
+                "npm:@nestjs/testing"
+              ]
+            },
+            {
+              "file": "apps/api/src/reports/reports.controller.ts",
+              "hash": "1bd79ed39d2c4290a19321853d60a868ccf532ec",
+              "deps": [
+                "npm:@nestjs/common"
+              ]
+            },
+            {
+              "file": "apps/api/src/reports/reports.module.ts",
+              "hash": "c4a5f657ac74c57d6cb2a16df2387191f62bdd8b",
+              "deps": [
+                "npm:@nestjs/common",
+                "npm:@nestjs/typeorm"
+              ]
+            },
+            {
+              "file": "apps/api/src/reports/reports.service.spec.ts",
+              "hash": "79b4fa08d714d1815fe99fb7e0bad03ed4c149a2",
+              "deps": [
+                "npm:@nestjs/testing"
+              ]
+            },
+            {
+              "file": "apps/api/src/reports/reports.service.ts",
+              "hash": "24c001081ad34128f8c44069db51985db82af6a5",
+              "deps": [
+                "npm:@nestjs/common"
+              ]
+            },
+            {
+              "file": "apps/api/src/users/users.controller.spec.ts",
+              "hash": "3e27c395dc18c8698eabc870f25d28da06e73c57",
+              "deps": [
+                "npm:@nestjs/testing"
+              ]
+            },
+            {
+              "file": "apps/api/src/users/users.controller.ts",
+              "hash": "43b3842ab0a8e3d6c15fe0e5c6b92b13280ac566",
+              "deps": [
+                "npm:@nestjs/common"
+              ]
+            },
+            {
+              "file": "apps/api/src/users/users.module.ts",
+              "hash": "f08649aed9ea5bddb924c0f830761005d0449367",
+              "deps": [
+                "npm:@nestjs/common",
+                "npm:@nestjs/typeorm"
+              ]
+            },
+            {
+              "file": "apps/api/src/users/users.service.spec.ts",
+              "hash": "62815ba64127cabb3fd96e8114024483391f0e4f",
+              "deps": [
+                "npm:@nestjs/testing"
+              ]
+            },
+            {
+              "file": "apps/api/src/users/users.service.ts",
+              "hash": "ef0d82d2791026f91c95e0c0799310646029c90b",
+              "deps": [
+                "npm:@nestjs/common"
+              ]
+            },
+            {
+              "file": "apps/api/tsconfig.app.json",
+              "hash": "91231e40197aba64805b8c86152fb7e496bb1c3a"
+            },
+            {
+              "file": "apps/api/tsconfig.json",
+              "hash": "63dbe35fb282d5f9ac4a724607173e6316269e29"
+            },
+            {
+              "file": "apps/api/tsconfig.spec.json",
+              "hash": "546f12877f7f05dd2e7b8782c7d6eae8189c34c0"
+            },
+            {
+              "file": "apps/api/src/users/user.entity.ts",
+              "hash": "4f9fe23e3f0038f5871950415cbcd66cff0de295",
+              "deps": [
+                "npm:typeorm"
+              ]
+            },
+            {
+              "file": "apps/api/src/reports/report.entity.ts",
+              "hash": "102fc7fc5ee7d6d0bb51d1d02c8091bd31d394a6",
+              "deps": [
+                "npm:typeorm"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "dependencies": {
+      "demo-e2e": [
+        {
+          "source": "demo-e2e",
+          "target": "demo",
+          "type": "implicit"
+        }
+      ],
+      "demo": [],
+      "api": []
+    }
+  },
+  "affectedProjects": [],
+  "criticalPath": []
+}
