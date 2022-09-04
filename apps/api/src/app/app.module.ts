@@ -7,17 +7,20 @@ import { ReportsModule } from '../reports/reports.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from '../users/user.entity';
 import { Report } from '../reports/report.entity';
+import { Product } from '../product/product.entity';
+import { ProductModule } from '../product/product.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'db.sqlite',
-      entities: [User, Report],
+      entities: [User, Report, Product],
       synchronize: true,
     }),
     UsersModule,
     ReportsModule,
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],

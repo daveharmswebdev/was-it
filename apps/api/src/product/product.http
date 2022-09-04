@@ -1,0 +1,23 @@
+# curl --location --request PATCH 'http://localhost:3333/api/product/64942-1096'
+#--header 'Content-Type: application/json'
+#--data-raw '{
+#    "price": 1.17
+#}'
+PATCH http://localhost:3333/api/product/37808-177
+Content-Type: application/json
+
+{
+    "price": 5.00
+}
+###
+
+GET http://localhost:3333/api/product
+Accept: application/json
+###
+
+GET http://localhost:3333/api/product/37808-177
+Accept: application/json
+###
+
+
+
