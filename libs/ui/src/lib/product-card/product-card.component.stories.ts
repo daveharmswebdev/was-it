@@ -15,7 +15,5 @@ const Template: Story<ProductCardComponent> = (args: ProductCardComponent) => ({
   props: args,
 });
 
-
 export const Primary = Template.bind({});
-Primary.args = {
-}
+Primary.args = {};
