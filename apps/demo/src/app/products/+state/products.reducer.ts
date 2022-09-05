@@ -2,7 +2,7 @@ import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 
 import * as ProductsActions from './products.actions';
-import { ProductsEntity } from './products.models';
+import { ProductsEntity } from '../../../../../../libs/models/src/lib/products.models';
 
 export const PRODUCTS_FEATURE_KEY = 'products';
 

@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@was-it/models": ["libs/models/src/index.ts"],
       "@was-it/ui": ["libs/ui/src/index.ts"]
     }
   },

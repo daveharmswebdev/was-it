@@ -1,4 +1,4 @@
-import { ProductsEntity } from './products.models';
+import { ProductsEntity } from '../../../../../../libs/models/src/lib/products.models';
 import {
   initialProductsState,
   productsAdapter,

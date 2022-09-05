@@ -1,1 +1,16 @@
-<p>product-card works!</p>
+<mat-card fxLayout="column">
+  <mat-card-header>
+    <h4>{{ product.name }}</h4>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Price: {{ product.price | currency }}</p>
+    <p>Inventory: {{ product.inventory }}</p>
+    <p>Sku: {{ product.sku }}</p>
+  </mat-card-content>
+  <mat-card-footer fxLayout="row" fxLayoutGap="8px">
+    <button mat-raised-button color="primary" (click)="emitEdit()">Edit</button>
+    <button mat-raised-button color="warn" (click)="emitDelete()">
+      Delete
+    </button>
+  </mat-card-footer>
+</mat-card>

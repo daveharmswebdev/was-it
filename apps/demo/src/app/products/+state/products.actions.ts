@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ProductsEntity } from './products.models';
+import { ProductsEntity } from '../../../../../../libs/models/src/lib/products.models';
 
 export const initProducts = createAction('[Products Page] Init');
 

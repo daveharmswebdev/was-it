@@ -1,4 +1,11 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
+import { ProductsEntity } from '@was-it/models';
 
 @Component({
   selector: 'was-it-product-card',
@@ -6,8 +13,16 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./product-card.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class ProductCardComponent implements OnInit {
-  constructor() {}
+export class ProductCardComponent {
+  @Input() product!: ProductsEntity;
+  @Output() edit = new EventEmitter<number>();
+  @Output() delete = new EventEmitter<number>();
 
-  ngOnInit(): void {}
+  emitEdit() {
+    this.edit.emit(this.product.id);
+  }
+
+  emitDelete() {
+    this.delete.emit(this.product.id);
+  }
 }

@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 
 import * as ProductsActions from './products.actions';
-import { ProductsEntity } from './products.models';
+import { ProductsEntity } from '../../../../../../libs/models/src/lib/products.models';
 import {
   initialProductsState,
   productsReducer,

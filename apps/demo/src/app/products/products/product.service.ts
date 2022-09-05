@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ProductsEntity } from '../+state/products.models';
+import { ProductsEntity } from '../../../../../../libs/models/src/lib/products.models';
 
 @Injectable()
 export class ProductService {

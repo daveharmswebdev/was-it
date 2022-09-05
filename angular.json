@@ -4,6 +4,7 @@
     "api": "apps/api",
     "demo": "apps/demo",
     "demo-e2e": "apps/demo-e2e",
+    "models": "libs/models",
     "ui": "libs/ui",
     "ui-e2e": "apps/ui-e2e"
   }
