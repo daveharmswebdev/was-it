@@ -7,6 +7,10 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
@@ -24,6 +28,10 @@ import { environment } from '../environments/environment';
     ),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
+    HttpClientModule,
+    RouterModule,
+    AppRoutingModule,
+    ProductsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
