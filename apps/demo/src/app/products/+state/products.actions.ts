@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
-import { ProductsEntity } from '../../../../../../libs/models/src/lib/products.models';
+import { ProductsEntity } from '@was-it/models';
+import { Update } from '@ngrx/entity';
 
 export const initProducts = createAction('[Products Page] Init');
 
@@ -10,5 +11,20 @@ export const loadProductsSuccess = createAction(
 
 export const loadProductsFailure = createAction(
   '[Products/API] Load Products Failure',
+  props<{ error: any }>()
+);
+
+export const updateProduct = createAction(
+  '[Products Page] Update',
+  props<{ update: Update<ProductsEntity> }>()
+);
+
+export const updateProductSuccess = createAction(
+  '[Products/API] Update Product Success',
+  props<{ product: ProductsEntity }>()
+);
+
+export const updateProductFailure = createAction(
+  '[Products/API] Update Product Failure',
   props<{ error: any }>()
 );

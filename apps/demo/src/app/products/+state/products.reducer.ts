@@ -2,7 +2,7 @@ import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 
 import * as ProductsActions from './products.actions';
-import { ProductsEntity } from '../../../../../../libs/models/src/lib/products.models';
+import { ProductsEntity } from '@was-it/models';
 
 export const PRODUCTS_FEATURE_KEY = 'products';
 
@@ -35,10 +35,18 @@ const reducer = createReducer(
   on(ProductsActions.loadProductsSuccess, (state, { products }) =>
     productsAdapter.setAll(products, { ...state, loaded: true })
   ),
-  on(ProductsActions.loadProductsFailure, (state, { error }) => ({
-    ...state,
-    error,
-  }))
+  on(ProductsActions.updateProduct, (state) => ({ ...state, error: null })),
+  on(ProductsActions.updateProductSuccess, (state, { product }) =>
+    productsAdapter.setOne(product, { ...state })
+  ),
+  on(
+    ProductsActions.loadProductsFailure,
+    ProductsActions.updateProductFailure,
+    (state, { error }) => ({
+      ...state,
+      error,
+    })
+  )
 );
 
 export function productsReducer(

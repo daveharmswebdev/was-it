@@ -6,6 +6,9 @@ import { EffectsModule } from '@ngrx/effects';
 import * as fromProducts from './+state/products.reducer';
 import { ProductsEffects } from './+state/products.effects';
 import { ProductService } from './products/product.service';
+import { UiModule } from '@was-it/ui';
+import { FlexModule } from '@angular/flex-layout';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [ProductsComponent],
@@ -16,6 +19,9 @@ import { ProductService } from './products/product.service';
       fromProducts.productsReducer
     ),
     EffectsModule.forFeature([ProductsEffects]),
+    UiModule,
+    FlexModule,
+    MatDialogModule,
   ],
   providers: [ProductService],
 })

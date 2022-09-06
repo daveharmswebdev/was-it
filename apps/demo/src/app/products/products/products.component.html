@@ -1,1 +1,10 @@
 <p>products works!</p>
+
+<div class="container" fxLayout="row wrap" fxLayoutGap="1rem">
+  <was-it-product-card
+    *ngFor="let product of products$ | async"
+    [product]="product"
+    (delete)="delete($event)"
+    (edit)="edit($event)"
+  ></was-it-product-card>
+</div>

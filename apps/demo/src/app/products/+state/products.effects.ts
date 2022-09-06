@@ -4,7 +4,7 @@ import { fetch } from '@nrwl/angular';
 
 import * as ProductsActions from './products.actions';
 import { ProductService } from '../products/product.service';
-import { map } from 'rxjs';
+import { catchError, map, mergeMap, of } from 'rxjs';
 
 @Injectable()
 export class ProductsEffects {
@@ -16,7 +16,7 @@ export class ProductsEffects {
           return this.productService.getProducts().pipe(
             map((products) =>
               ProductsActions.loadProductsSuccess({
-                products: products.slice(0, 20),
+                products,
               })
             )
           );
@@ -26,6 +26,18 @@ export class ProductsEffects {
           return ProductsActions.loadProductsFailure({ error });
         },
       })
+    )
+  );
+
+  update$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ProductsActions.updateProduct),
+      mergeMap((update) =>
+        this.productService.updateProducts(update.update).pipe(
+          map((product) => ProductsActions.updateProductSuccess({ product })),
+          catchError((error) => of(ProductsActions.updateProductFailure(error)))
+        )
+      )
     )
   );
 

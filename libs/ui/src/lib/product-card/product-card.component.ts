@@ -15,11 +15,11 @@ import { ProductsEntity } from '@was-it/models';
 })
 export class ProductCardComponent {
   @Input() product!: ProductsEntity;
-  @Output() edit = new EventEmitter<number>();
+  @Output() edit = new EventEmitter<ProductsEntity>();
   @Output() delete = new EventEmitter<number>();
 
   emitEdit() {
-    this.edit.emit(this.product.id);
+    this.edit.emit(this.product);
   }
 
   emitDelete() {

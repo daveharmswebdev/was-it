@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ProductsEntity } from '../../../../../../libs/models/src/lib/products.models';
+import { ProductsEntity } from '@was-it/models';
+import { Update } from '@ngrx/entity';
 
 @Injectable()
 export class ProductService {
@@ -10,5 +11,12 @@ export class ProductService {
 
   getProducts() {
     return this.http.get<ProductsEntity[]>(this.baseUrl + '/product');
+  }
+
+  updateProducts(update: Update<ProductsEntity>) {
+    return this.http.patch<ProductsEntity>(
+      this.baseUrl + '/product/' + update.changes.sku,
+      { ...update.changes }
+    );
   }
 }
