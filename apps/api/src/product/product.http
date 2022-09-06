@@ -1,3 +1,14 @@
+POST http://localhost:3333/api/product
+Content-Type: application/json
+
+{
+  "name": "Test",
+  "price": 36.83,
+  "inventory": 2,
+  "sku": "0591-asdfasdf"
+}
+
+###
 # curl --location --request PATCH 'http://localhost:3333/api/product/64942-1096'
 #--header 'Content-Type: application/json'
 #--data-raw '{
@@ -15,9 +26,11 @@ GET http://localhost:3333/api/product
 Accept: application/json
 ###
 
-GET http://localhost:3333/api/product/37808-177
+GET http://localhost:3333/api/product/0591-3973
 Accept: application/json
 ###
+
+
 
 
 

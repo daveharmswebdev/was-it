@@ -1,8 +1,17 @@
-import { Body, Controller, Delete, Get, Param, Patch } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import { ProductService } from './product.service';
 import { UpdateProductDto } from './dtos/update-product.dto';
 import { Serialize } from '../interceptors/serialize.interceptor';
 import { ProductDto } from './dtos/product.dto';
+import { CreateProductDto } from './dtos/create-product.dto';
 
 @Serialize(ProductDto)
 @Controller('product')
@@ -17,6 +26,11 @@ export class ProductController {
   @Get('/:sku')
   findBySku(@Param('sku') sku) {
     return this.productService.findBySku(sku);
+  }
+
+  @Post()
+  createProduct(@Body() body: CreateProductDto) {
+    return this.productService.createProduct(body);
   }
 
   @Patch('/:sku')

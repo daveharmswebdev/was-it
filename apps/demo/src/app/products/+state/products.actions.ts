@@ -28,3 +28,18 @@ export const updateProductFailure = createAction(
   '[Products/API] Update Product Failure',
   props<{ error: any }>()
 );
+
+export const createProduct = createAction(
+  '[Products Page] Create Product',
+  props<{ product: ProductsEntity }>()
+);
+
+export const createProductSuccess = createAction(
+  '[Products/API] Create Product Success',
+  props<{ product: ProductsEntity }>()
+);
+
+export const createProductFailure = createAction(
+  '[Products/API] Create Product Failure',
+  props<{ error: any }>()
+);

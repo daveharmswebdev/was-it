@@ -35,6 +35,10 @@ const reducer = createReducer(
   on(ProductsActions.loadProductsSuccess, (state, { products }) =>
     productsAdapter.setAll(products, { ...state, loaded: true })
   ),
+  on(ProductsActions.createProduct, (state) => ({ ...state, error: null })),
+  on(ProductsActions.createProductSuccess, (state, { product }) =>
+    productsAdapter.addOne(product, { ...state })
+  ),
   on(ProductsActions.updateProduct, (state) => ({ ...state, error: null })),
   on(ProductsActions.updateProductSuccess, (state, { product }) =>
     productsAdapter.setOne(product, { ...state })
@@ -42,6 +46,7 @@ const reducer = createReducer(
   on(
     ProductsActions.loadProductsFailure,
     ProductsActions.updateProductFailure,
+    ProductsActions.createProductFailure,
     (state, { error }) => ({
       ...state,
       error,

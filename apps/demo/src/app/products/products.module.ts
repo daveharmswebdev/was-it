@@ -9,6 +9,7 @@ import { ProductService } from './products/product.service';
 import { UiModule } from '@was-it/ui';
 import { FlexModule } from '@angular/flex-layout';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [ProductsComponent],
@@ -22,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     UiModule,
     FlexModule,
     MatDialogModule,
+    MatButtonModule,
   ],
   providers: [ProductService],
 })

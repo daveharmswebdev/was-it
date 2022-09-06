@@ -13,6 +13,10 @@ export class ProductService {
     return this.http.get<ProductsEntity[]>(this.baseUrl + '/product');
   }
 
+  createProduct(product: ProductsEntity) {
+    return this.http.post<ProductsEntity>(this.baseUrl + '/product', product);
+  }
+
   updateProducts(update: Update<ProductsEntity>) {
     return this.http.patch<ProductsEntity>(
       this.baseUrl + '/product/' + update.changes.sku,

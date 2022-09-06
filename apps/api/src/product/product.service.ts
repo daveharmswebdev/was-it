@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Product } from './product.entity';
 import { Repository } from 'typeorm';
+import { CreateProductDto } from './dtos/create-product.dto';
 
 @Injectable()
 export class ProductService {
@@ -35,5 +36,11 @@ export class ProductService {
     const product = await this.findBySku(sku);
 
     return this.repo.remove(product);
+  }
+
+  createProduct(product: CreateProductDto) {
+    const newProduct = this.repo.create(product);
+
+    return this.repo.save(newProduct);
   }
 }

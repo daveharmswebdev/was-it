@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
 import { Store } from '@ngrx/store';
 import { ProductsState } from '../+state/products.reducer';
-import { initProducts, updateProduct } from '../+state/products.actions';
+import {
+  createProduct,
+  initProducts,
+  updateProduct,
+} from '../+state/products.actions';
 import { getAllProducts } from '../+state/products.selectors';
 import { Observable } from 'rxjs';
 import { ProductsEntity } from '@was-it/models';
@@ -29,6 +33,23 @@ export class ProductsComponent implements OnInit {
 
   delete(id: number) {
     console.log('deleting', id);
+  }
+
+  create() {
+    const dialogRef = this.dialog.open(EditProductDialogComponent, {
+      data: {
+        product: {
+          name: '',
+          price: null,
+          inventory: null,
+          sku: '',
+        },
+      },
+    });
+
+    dialogRef
+      .afterClosed()
+      .subscribe((product) => this.store.dispatch(createProduct({ product })));
   }
 
   edit(product: ProductsEntity) {
