@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { ProductsState } from '../+state/products.reducer';
 import {
   createProduct,
+  deleteProduct,
   initProducts,
   updateProduct,
 } from '../+state/products.actions';
@@ -31,8 +32,8 @@ export class ProductsComponent implements OnInit {
     this.store.dispatch(initProducts());
   }
 
-  delete(id: number) {
-    console.log('deleting', id);
+  delete(product: ProductsEntity) {
+    this.store.dispatch(deleteProduct({ product }));
   }
 
   create() {

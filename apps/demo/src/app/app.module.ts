@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductsModule } from './products/products.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialExampleModule } from './material.module';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
@@ -34,6 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     ProductsModule,
     BrowserAnimationsModule,
+    MaterialExampleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

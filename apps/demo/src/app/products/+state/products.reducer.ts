@@ -43,10 +43,15 @@ const reducer = createReducer(
   on(ProductsActions.updateProductSuccess, (state, { product }) =>
     productsAdapter.setOne(product, { ...state })
   ),
+  on(ProductsActions.deleteProduct, (state) => ({ ...state, error: null })),
+  on(ProductsActions.deleteProductSuccess, (state, { id }) =>
+    productsAdapter.removeOne(id, { ...state })
+  ),
   on(
     ProductsActions.loadProductsFailure,
     ProductsActions.updateProductFailure,
     ProductsActions.createProductFailure,
+    ProductsActions.deleteProductFailure,
     (state, { error }) => ({
       ...state,
       error,

@@ -23,4 +23,8 @@ export class ProductService {
       { ...update.changes }
     );
   }
+
+  deleteProduct(sku: string) {
+    return this.http.delete<ProductsEntity>(this.baseUrl + '/product/' + sku);
+  }
 }

@@ -30,6 +30,11 @@ GET http://localhost:3333/api/product/0591-3973
 Accept: application/json
 ###
 
+DELETE http://localhost:3333/api/product/0591-3973
+Accept: application/json
+###
+
+
 
 
 

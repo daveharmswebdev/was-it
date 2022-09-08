@@ -43,3 +43,18 @@ export const createProductFailure = createAction(
   '[Products/API] Create Product Failure',
   props<{ error: any }>()
 );
+
+export const deleteProduct = createAction(
+  '[Products Page] Delete Product',
+  props<{ product: ProductsEntity }>()
+);
+
+export const deleteProductSuccess = createAction(
+  '[Products Page] Delete Product Success',
+  props<{ id: number }>()
+);
+
+export const deleteProductFailure = createAction(
+  '[Products/API] Delete Product Failure',
+  props<{ error: any }>()
+);
