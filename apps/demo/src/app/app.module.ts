@@ -14,9 +14,16 @@ import { ProductsModule } from './products/products.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialExampleModule } from './material.module';
 import { PeopleComponent } from './people/people.component';
+import { PeopleService } from './people/people.service';
+import { PeopleTableComponent } from './people/people-table/people-table.component';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent, PeopleComponent],
+  declarations: [
+    AppComponent,
+    NxWelcomeComponent,
+    PeopleComponent,
+    PeopleTableComponent,
+  ],
   imports: [
     BrowserModule,
     StoreModule.forRoot(
@@ -38,7 +45,7 @@ import { PeopleComponent } from './people/people.component';
     BrowserAnimationsModule,
     MaterialExampleModule,
   ],
-  providers: [],
+  providers: [PeopleService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

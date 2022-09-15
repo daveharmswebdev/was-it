@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { PeopleService } from './people.service';
 
 @Component({
   selector: 'was-it-people',
@@ -7,7 +8,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class PeopleComponent implements OnInit {
-  constructor() {}
+  people$ = this.peopleService.getUsers();
 
-  ngOnInit(): void {}
+  constructor(private peopleService: PeopleService) {}
+
+  ngOnInit(): void {
+    this.people$.subscribe(console.log);
+  }
 }
