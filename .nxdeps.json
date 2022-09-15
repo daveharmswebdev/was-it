@@ -49,7 +49,7 @@
             },
             {
               "file": "apps/demo-e2e/project.json",
-              "hash": "77bacca4116a06db922c245d56aefdbe1188d4f9"
+              "hash": "deb014bf89afc3fea199a2f918bbf60447ec1cb4"
             },
             {
               "file": "apps/demo-e2e/src/fixtures/example.json",
@@ -74,6 +74,160 @@
             {
               "file": "apps/demo-e2e/tsconfig.json",
               "hash": "eed477927cc7ae6bd893346f66121ea1338218e1"
+            }
+          ]
+        }
+      },
+      "models": {
+        "name": "models",
+        "type": "lib",
+        "data": {
+          "root": "libs/models",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "libs/models/src",
+          "projectType": "library",
+          "targets": {
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "libs/models/**/*.ts"
+                ]
+              }
+            },
+            "test": {
+              "executor": "@nrwl/jest:jest",
+              "outputs": [
+                "coverage/libs/models"
+              ],
+              "options": {
+                "jestConfig": "libs/models/jest.config.ts",
+                "passWithNoTests": true
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "libs/models/.babelrc",
+              "hash": "cf7ddd99c615a064ac18eb3109eee4f394ab1faf"
+            },
+            {
+              "file": "libs/models/.eslintrc.json",
+              "hash": "9d9c0db55bb1e91c5f2e7b64a02bc6bf69fc7cb5"
+            },
+            {
+              "file": "libs/models/jest.config.ts",
+              "hash": "883068df122f439b4ba30750f3c6f8a15be0538d"
+            },
+            {
+              "file": "libs/models/project.json",
+              "hash": "fe35afc0204fe9c43e301dfe3c6a3c72616711a9"
+            },
+            {
+              "file": "libs/models/README.md",
+              "hash": "b93c8cf01507e9717ac91f71c32ce0bff58a1d1b"
+            },
+            {
+              "file": "libs/models/src/index.ts",
+              "hash": "f0403b520f30da469cafd6a9131bb23de62de58e"
+            },
+            {
+              "file": "libs/models/src/lib/models.spec.ts",
+              "hash": "25f6a18428dd72cb7ba1a798de230a94d8fd3c8e"
+            },
+            {
+              "file": "libs/models/src/lib/models.ts",
+              "hash": "b090ae5da5d5034a1336e23d027b761715394b83"
+            },
+            {
+              "file": "libs/models/src/lib/products.models.ts",
+              "hash": "b5d698636f649fa094db68212f96aefb2d5915b3"
+            },
+            {
+              "file": "libs/models/tsconfig.json",
+              "hash": "e258886ffc933cca0326ceb2ee4fde881378131b"
+            },
+            {
+              "file": "libs/models/tsconfig.lib.json",
+              "hash": "b3f90c22fea8cc001776966784f9b8f1ce71a5ba"
+            },
+            {
+              "file": "libs/models/tsconfig.spec.json",
+              "hash": "ff08addd60ff581234ec9423d2bb90f31d8166e8"
+            }
+          ]
+        }
+      },
+      "ui-e2e": {
+        "name": "ui-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/ui-e2e",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/ui-e2e/src",
+          "projectType": "application",
+          "targets": {
+            "e2e": {
+              "executor": "@nrwl/cypress:cypress",
+              "options": {
+                "cypressConfig": "apps/ui-e2e/cypress.json",
+                "devServerTarget": "ui:storybook",
+                "testingType": "e2e"
+              },
+              "configurations": {
+                "ci": {
+                  "devServerTarget": "ui:storybook:ci"
+                }
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "apps/ui-e2e/**/*.{js,ts}"
+                ]
+              }
+            }
+          },
+          "tags": [],
+          "implicitDependencies": [
+            "ui"
+          ],
+          "files": [
+            {
+              "file": "apps/ui-e2e/.eslintrc.json",
+              "hash": "696cb8b12127425419f6d2809c5f15a5963d86de"
+            },
+            {
+              "file": "apps/ui-e2e/cypress.json",
+              "hash": "c161b63d20813d361c1759c02ced9d7f91fa0f13"
+            },
+            {
+              "file": "apps/ui-e2e/project.json",
+              "hash": "e6dab7f96b154ddc78571c6ac7dc6cfdfa561497"
+            },
+            {
+              "file": "apps/ui-e2e/src/fixtures/example.json",
+              "hash": "294cbed6ce9e0b948b787452e8676aee486cb3be"
+            },
+            {
+              "file": "apps/ui-e2e/src/support/commands.ts",
+              "hash": "310f1fa0e043ffebbbcf575c5a4d17f13a6b14d6"
+            },
+            {
+              "file": "apps/ui-e2e/src/support/index.ts",
+              "hash": "459189af2288e5902e12bf1b1bf307fb779295a5"
+            },
+            {
+              "file": "apps/ui-e2e/tsconfig.json",
+              "hash": "c4f818ecd40fbce82c3e08bf25cde3043970f8f3"
             }
           ]
         }
@@ -105,6 +259,7 @@
                   "apps/demo/src/assets"
                 ],
                 "styles": [
+                  "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
                   "apps/demo/src/styles.scss"
                 ],
                 "scripts": []
@@ -202,15 +357,23 @@
             },
             {
               "file": "apps/demo/project.json",
-              "hash": "18c2fea23de8f6312d4e28cfc2b9a06964976a7d"
+              "hash": "ac267eca3090edfe12d225b4c8f98dbe82ec7e1f"
             },
             {
               "file": "apps/demo/proxy.conf.json",
               "hash": "62a1e7b762cec5ece007e8e21daaf5eb141e0e7b"
             },
             {
+              "file": "apps/demo/src/app/app-routing.module.ts",
+              "hash": "348b581d2394d37bb38158400bbcdf129868a5e5",
+              "deps": [
+                "npm:@angular/core",
+                "npm:@angular/router"
+              ]
+            },
+            {
               "file": "apps/demo/src/app/app.component.html",
-              "hash": "502f022a2d1c586d53bff0abde03d2960f28671a"
+              "hash": "9dd8fcc07350419db5cbdba458e840fb4d2daec8"
             },
             {
               "file": "apps/demo/src/app/app.component.scss",
@@ -232,10 +395,24 @@
             },
             {
               "file": "apps/demo/src/app/app.module.ts",
-              "hash": "ca4cff2f830a9ae53ecd2ee9e5ecff7282c211f6",
+              "hash": "044ffcff131d9f0c9eea047f1ec3ce87500408eb",
               "deps": [
                 "npm:@angular/core",
-                "npm:@angular/platform-browser"
+                "npm:@angular/platform-browser",
+                "npm:@ngrx/store",
+                "npm:@ngrx/effects",
+                "npm:@ngrx/store-devtools",
+                "npm:@angular/common",
+                "npm:@angular/router"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/material.module.ts",
+              "hash": "c19466578b7825f0b38903fed1ad4f5060205a9e",
+              "deps": [
+                "npm:@angular/core",
+                "npm:@angular/cdk",
+                "npm:@angular/material"
               ]
             },
             {
@@ -243,6 +420,118 @@
               "hash": "6483d41d841b47464bca34ec5227dd89f07e7802",
               "deps": [
                 "npm:@angular/core"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/products/+state/products.actions.ts",
+              "hash": "06092005d6b047c8430803822d9c8400fda0ac3b",
+              "deps": [
+                "npm:@ngrx/store",
+                "models",
+                "npm:@ngrx/entity"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/products/+state/products.effects.spec.ts",
+              "hash": "5522d0acc24da08c8e452f532b9e9c25311bc0c5",
+              "deps": [
+                "npm:@angular/core",
+                "npm:@ngrx/effects",
+                "npm:@ngrx/store",
+                "npm:@nrwl/angular",
+                "npm:jasmine-marbles",
+                "npm:rxjs"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/products/+state/products.effects.ts",
+              "hash": "5ea13ec99e6b1deaef47587b399c426a2a725acb",
+              "deps": [
+                "npm:@angular/core",
+                "npm:@ngrx/effects",
+                "npm:@nrwl/angular",
+                "npm:rxjs"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/products/+state/products.reducer.spec.ts",
+              "hash": "4019537a1c40d70339f4a483af0b2f332f15053e",
+              "deps": [
+                "npm:@ngrx/store",
+                "models"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/products/+state/products.reducer.ts",
+              "hash": "37300ead99ca2326765a50ff26a23d9aec468eb0",
+              "deps": [
+                "npm:@ngrx/entity",
+                "npm:@ngrx/store",
+                "models"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/products/+state/products.selectors.spec.ts",
+              "hash": "5b7bdf2e11ef7295e184b47803a33f00db34ca7c",
+              "deps": [
+                "models"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/products/+state/products.selectors.ts",
+              "hash": "2c91ea72265febe7a8fcb00068481d98ad1a517b",
+              "deps": [
+                "npm:@ngrx/store"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/products/products.module.ts",
+              "hash": "b701b1c4e50474e484b23683366984ea0de0f3c2",
+              "deps": [
+                "npm:@angular/core",
+                "npm:@angular/common",
+                "npm:@ngrx/store",
+                "npm:@ngrx/effects",
+                "ui",
+                "npm:@angular/flex-layout",
+                "npm:@angular/material"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/products/products/product.service.ts",
+              "hash": "d2d94907b94711d827a4970a0b0fe254081db4cc",
+              "deps": [
+                "npm:@angular/core",
+                "npm:@angular/common",
+                "models",
+                "npm:@ngrx/entity"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/products/products/products.component.html",
+              "hash": "3b622818b5bcef06526e4760a9a2770432810274"
+            },
+            {
+              "file": "apps/demo/src/app/products/products/products.component.scss",
+              "hash": "d0f55065716f56ca7110c11d1c61e05f5a9669f3"
+            },
+            {
+              "file": "apps/demo/src/app/products/products/products.component.spec.ts",
+              "hash": "2d4dc9d0bc6e794d9bd36aa18dcdff067c7f7b80",
+              "deps": [
+                "npm:@angular/core"
+              ]
+            },
+            {
+              "file": "apps/demo/src/app/products/products/products.component.ts",
+              "hash": "981dd38a07b27ab97d7623d635146d6b27d6efed",
+              "deps": [
+                "npm:@angular/core",
+                "npm:@ngrx/store",
+                "npm:rxjs",
+                "models",
+                "npm:@angular/material",
+                "ui"
               ]
             },
             {
@@ -263,7 +552,7 @@
             },
             {
               "file": "apps/demo/src/index.html",
-              "hash": "4c2e025d4ec10bb610105897e5e80cfe4ef8bd94"
+              "hash": "81dc27dd1df076c65d6a2a0a257da9c75feff05e"
             },
             {
               "file": "apps/demo/src/main.ts",
@@ -282,7 +571,7 @@
             },
             {
               "file": "apps/demo/src/styles.scss",
-              "hash": "90d4ee0072ce3fc41812f8af910219f9eea3c3de"
+              "hash": "3b9cecf7b8d4594745cbead58565d206fb1c952e"
             },
             {
               "file": "apps/demo/src/test-setup.ts",
@@ -394,7 +683,7 @@
             },
             {
               "file": "apps/api/project.json",
-              "hash": "70c0a3e6d112692d7440a8d7121adc1d9f8fd5bb"
+              "hash": "6e9308919bd9686eaae6d2236785116d3b0dc96e"
             },
             {
               "file": "apps/api/src/app/.gitkeep",
@@ -416,7 +705,7 @@
             },
             {
               "file": "apps/api/src/app/app.module.ts",
-              "hash": "3122a7711e7f22a1236f280e34289e884fd6f4fd",
+              "hash": "8c2054297168a84d71efe74fd90444a6db713e23",
               "deps": [
                 "npm:@nestjs/common",
                 "npm:@nestjs/typeorm"
@@ -449,11 +738,98 @@
               "hash": "a20cfe55731540eac839ab33f9ce1eaa6da50b16"
             },
             {
-              "file": "apps/api/src/main.ts",
-              "hash": "2268b6e1a2f4bc6860e8855f9425d3c432514cdb",
+              "file": "apps/api/src/interceptors/serialize.interceptor.ts",
+              "hash": "8bd266e6790c23305eccb6b4ffa581894952788b",
               "deps": [
                 "npm:@nestjs/common",
-                "npm:@nestjs/core"
+                "npm:rxjs",
+                "npm:class-transformer"
+              ]
+            },
+            {
+              "file": "apps/api/src/main.ts",
+              "hash": "f94d53d1db41b833d60150df38310f9832acb466",
+              "deps": [
+                "npm:@nestjs/common",
+                "npm:@nestjs/core",
+                "npm:@nestjs/swagger"
+              ]
+            },
+            {
+              "file": "apps/api/src/product/dtos/create-product.dto.ts",
+              "hash": "4c4221c33ffd1bdea2527acebce67d00f42520d9",
+              "deps": [
+                "npm:class-validator"
+              ]
+            },
+            {
+              "file": "apps/api/src/product/dtos/product.dto.ts",
+              "hash": "253a6bfaaa0aba5590580828037feb78c67c4bff",
+              "deps": [
+                "npm:class-transformer"
+              ]
+            },
+            {
+              "file": "apps/api/src/product/dtos/update-product.dto.ts",
+              "hash": "ce78b50ee3b8a1c5023e846fd77fdfa9cf6bf698",
+              "deps": [
+                "npm:class-validator"
+              ]
+            },
+            {
+              "file": "apps/api/src/product/product.controller.spec.ts",
+              "hash": "3dbbbb153b3ef77cf4f7bad0a53c17fd100fe6a3",
+              "deps": [
+                "npm:@nestjs/testing"
+              ]
+            },
+            {
+              "file": "apps/api/src/product/product.controller.ts",
+              "hash": "6c7849071c81f6dc9963daf0059cb73624ce849d",
+              "deps": [
+                "npm:@nestjs/common"
+              ]
+            },
+            {
+              "file": "apps/api/src/product/product.entity.ts",
+              "hash": "90fc34c9a0200382ba0a24a259ad1e07f936363d",
+              "deps": [
+                "npm:typeorm"
+              ]
+            },
+            {
+              "file": "apps/api/src/product/product.http",
+              "hash": "4d71c00c266c9a0c54f799d9214237e794f9bbfc"
+            },
+            {
+              "file": "apps/api/src/product/product.module.ts",
+              "hash": "8c1221a4848d9ba5e04946038f5f4ac41c45b1ea",
+              "deps": [
+                "npm:@nestjs/common",
+                "npm:@nestjs/typeorm"
+              ]
+            },
+            {
+              "file": "apps/api/src/product/product.service.spec.ts",
+              "hash": "5b2a8f2e4195b3d653ac56de9f733f583252a7a0",
+              "deps": [
+                "npm:@nestjs/testing"
+              ]
+            },
+            {
+              "file": "apps/api/src/product/product.service.ts",
+              "hash": "e863e8901728a78181ba536203a3985d693a0db0",
+              "deps": [
+                "npm:@nestjs/common",
+                "npm:@nestjs/typeorm",
+                "npm:typeorm"
+              ]
+            },
+            {
+              "file": "apps/api/src/reports/report.entity.ts",
+              "hash": "102fc7fc5ee7d6d0bb51d1d02c8091bd31d394a6",
+              "deps": [
+                "npm:typeorm"
               ]
             },
             {
@@ -487,10 +863,44 @@
             },
             {
               "file": "apps/api/src/reports/reports.service.ts",
-              "hash": "24c001081ad34128f8c44069db51985db82af6a5",
+              "hash": "e44e3c1c46d0071f1de71460f70529708047ec51",
               "deps": [
-                "npm:@nestjs/common"
+                "npm:@nestjs/common",
+                "npm:@nestjs/typeorm",
+                "npm:typeorm"
               ]
+            },
+            {
+              "file": "apps/api/src/users/dtos/create-user.dto.ts",
+              "hash": "db75cfd067a7442bece63e86811b6cbc7d74f9eb",
+              "deps": [
+                "npm:class-validator"
+              ]
+            },
+            {
+              "file": "apps/api/src/users/dtos/update-user.dto.ts",
+              "hash": "7a642b5c9e449b41fd74931a452739f5dad124da",
+              "deps": [
+                "npm:class-validator"
+              ]
+            },
+            {
+              "file": "apps/api/src/users/dtos/user.dto.ts",
+              "hash": "5131c005b47a225bdf6d3ea75a6597245fad24e2",
+              "deps": [
+                "npm:class-transformer"
+              ]
+            },
+            {
+              "file": "apps/api/src/users/user.entity.ts",
+              "hash": "65be56ca40370c285b7fe4b1828789d3ef7fa191",
+              "deps": [
+                "npm:typeorm"
+              ]
+            },
+            {
+              "file": "apps/api/src/users/user.http",
+              "hash": "464c30c5fb1cc1c45d2b1034b6063e62e9a82669"
             },
             {
               "file": "apps/api/src/users/users.controller.spec.ts",
@@ -501,7 +911,7 @@
             },
             {
               "file": "apps/api/src/users/users.controller.ts",
-              "hash": "43b3842ab0a8e3d6c15fe0e5c6b92b13280ac566",
+              "hash": "1a8cbfa7c2e5b3de62f998a74ea7ec995a48877d",
               "deps": [
                 "npm:@nestjs/common"
               ]
@@ -523,9 +933,11 @@
             },
             {
               "file": "apps/api/src/users/users.service.ts",
-              "hash": "ef0d82d2791026f91c95e0c0799310646029c90b",
+              "hash": "d950b324117046b54aa6e4282b3e40beeb110503",
               "deps": [
-                "npm:@nestjs/common"
+                "npm:@nestjs/common",
+                "npm:typeorm",
+                "npm:@nestjs/typeorm"
               ]
             },
             {
@@ -539,20 +951,206 @@
             {
               "file": "apps/api/tsconfig.spec.json",
               "hash": "546f12877f7f05dd2e7b8782c7d6eae8189c34c0"
+            }
+          ]
+        }
+      },
+      "ui": {
+        "name": "ui",
+        "type": "lib",
+        "data": {
+          "root": "libs/ui",
+          "projectType": "library",
+          "sourceRoot": "libs/ui/src",
+          "prefix": "was-it",
+          "targets": {
+            "test": {
+              "executor": "@nrwl/jest:jest",
+              "outputs": [
+                "coverage/libs/ui"
+              ],
+              "options": {
+                "jestConfig": "libs/ui/jest.config.ts",
+                "passWithNoTests": true
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "options": {
+                "lintFilePatterns": [
+                  "libs/ui/**/*.ts",
+                  "libs/ui/**/*.html"
+                ]
+              }
+            },
+            "storybook": {
+              "executor": "@storybook/angular:start-storybook",
+              "options": {
+                "port": 4400,
+                "configDir": "libs/ui/.storybook",
+                "browserTarget": "ui:build-storybook",
+                "compodoc": false
+              },
+              "configurations": {
+                "ci": {
+                  "quiet": true
+                }
+              }
+            },
+            "build-storybook": {
+              "executor": "@storybook/angular:build-storybook",
+              "outputs": [
+                "{options.outputDir}"
+              ],
+              "options": {
+                "outputDir": "dist/storybook/ui",
+                "configDir": "libs/ui/.storybook",
+                "browserTarget": "ui:build-storybook",
+                "compodoc": false,
+                "styles": [
+                  "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                  "apps/demo/src/styles.scss"
+                ]
+              },
+              "configurations": {
+                "ci": {
+                  "quiet": true
+                }
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "libs/ui/.eslintrc.json",
+              "hash": "d66edd267e3aad88d92042d1a0460e2ac9d8b8a8"
             },
             {
-              "file": "apps/api/src/users/user.entity.ts",
-              "hash": "4f9fe23e3f0038f5871950415cbcd66cff0de295",
+              "file": "libs/ui/.storybook/main.js",
+              "hash": "a30a9ec1b95c074cb5d636f69c3e5e976d9aaf07"
+            },
+            {
+              "file": "libs/ui/.storybook/preview.js",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "libs/ui/.storybook/tsconfig.json",
+              "hash": "279c7a8daddb84ecb106c341a7b14927ae32d22a"
+            },
+            {
+              "file": "libs/ui/jest.config.ts",
+              "hash": "1eeee597160de7d401367d931c0fa9c96658f15b"
+            },
+            {
+              "file": "libs/ui/project.json",
+              "hash": "ef250bfb8d693bd2704cc387d9b1cb55a222587f"
+            },
+            {
+              "file": "libs/ui/README.md",
+              "hash": "139ffca13523fd0d00b6ec9d94c51ac003f2985a"
+            },
+            {
+              "file": "libs/ui/src/index.ts",
+              "hash": "70ba6b3afd01c42ee62f0a8f0975d251a9559084"
+            },
+            {
+              "file": "libs/ui/src/lib/edit-product-dialog/edit-product-dialog.component.html",
+              "hash": "9748b5fd0723e055676715261d8704deb8aeb40c"
+            },
+            {
+              "file": "libs/ui/src/lib/edit-product-dialog/edit-product-dialog.component.scss",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "libs/ui/src/lib/edit-product-dialog/edit-product-dialog.component.spec.ts",
+              "hash": "70a3a10e8a7d8cd9729686862d87b221b9aab0ed",
               "deps": [
-                "npm:typeorm"
+                "npm:@angular/core"
               ]
             },
             {
-              "file": "apps/api/src/reports/report.entity.ts",
-              "hash": "102fc7fc5ee7d6d0bb51d1d02c8091bd31d394a6",
+              "file": "libs/ui/src/lib/edit-product-dialog/edit-product-dialog.component.stories.ts",
+              "hash": "fb2b149afdf0ef0b200c193ec1c41d394f0e9763",
               "deps": [
-                "npm:typeorm"
+                "npm:@storybook/angular",
+                "npm:@angular/core",
+                "npm:@angular/material",
+                "npm:@angular/platform-browser",
+                "npm:@angular/forms",
+                "npm:@angular/flex-layout"
               ]
+            },
+            {
+              "file": "libs/ui/src/lib/edit-product-dialog/edit-product-dialog.component.ts",
+              "hash": "8f27cc996a7ea22027a2d57d7a2079cb896d320b",
+              "deps": [
+                "npm:@angular/core",
+                "npm:@angular/forms",
+                "npm:@angular/material",
+                "models"
+              ]
+            },
+            {
+              "file": "libs/ui/src/lib/product-card/product-card.component.html",
+              "hash": "a32606651766dbae1f2fb00c74a22ff7cdf5e810"
+            },
+            {
+              "file": "libs/ui/src/lib/product-card/product-card.component.scss",
+              "hash": "1da679b0bd6385eb35fc78cd9dd633924a938fff"
+            },
+            {
+              "file": "libs/ui/src/lib/product-card/product-card.component.spec.ts",
+              "hash": "c141a95cc7a1297d81ac286ec13c951dd47c1295",
+              "deps": [
+                "npm:@angular/core"
+              ]
+            },
+            {
+              "file": "libs/ui/src/lib/product-card/product-card.component.stories.ts",
+              "hash": "b71db5324d2b54f4f5182c37bc7cd0768d776abb",
+              "deps": [
+                "npm:@storybook/angular",
+                "npm:@angular/material",
+                "npm:@angular/flex-layout"
+              ]
+            },
+            {
+              "file": "libs/ui/src/lib/product-card/product-card.component.ts",
+              "hash": "64c9cecaa97b6f629b296f663e254bef795512b0",
+              "deps": [
+                "npm:@angular/core",
+                "models"
+              ]
+            },
+            {
+              "file": "libs/ui/src/lib/ui.module.ts",
+              "hash": "a4ee87c9fc02ca2e2d93411c1c7762009345605e",
+              "deps": [
+                "npm:@angular/core",
+                "npm:@angular/common",
+                "npm:@angular/material",
+                "npm:@angular/flex-layout",
+                "npm:@angular/forms"
+              ]
+            },
+            {
+              "file": "libs/ui/src/test-setup.ts",
+              "hash": "1100b3e8a6ed08f4b5c27a96471846d57023c320",
+              "deps": [
+                "npm:jest-preset-angular"
+              ]
+            },
+            {
+              "file": "libs/ui/tsconfig.json",
+              "hash": "3816910f16f6cec2870f897eb39f81984fe45e24"
+            },
+            {
+              "file": "libs/ui/tsconfig.lib.json",
+              "hash": "597b509ae6a1728780d57f598f88ebe24cab8ab8"
+            },
+            {
+              "file": "libs/ui/tsconfig.spec.json",
+              "hash": "c5db02778f96a2a200d787c0a7b376fe0d6c36f7"
             }
           ]
         }
@@ -566,10 +1164,50 @@
           "type": "implicit"
         }
       ],
-      "demo": [],
-      "api": []
+      "models": [],
+      "ui-e2e": [
+        {
+          "source": "ui-e2e",
+          "target": "ui",
+          "type": "implicit"
+        }
+      ],
+      "demo": [
+        {
+          "source": "demo",
+          "target": "models",
+          "type": "static"
+        },
+        {
+          "source": "demo",
+          "target": "ui",
+          "type": "static"
+        }
+      ],
+      "api": [],
+      "ui": [
+        {
+          "source": "ui",
+          "target": "models",
+          "type": "static"
+        }
+      ]
     }
   },
-  "affectedProjects": [],
-  "criticalPath": []
+  "affectedProjects": [
+    "api",
+    "demo-e2e",
+    "models",
+    "demo",
+    "ui",
+    "ui-e2e"
+  ],
+  "criticalPath": [
+    "api",
+    "demo-e2e",
+    "models",
+    "demo",
+    "ui",
+    "ui-e2e"
+  ]
 }

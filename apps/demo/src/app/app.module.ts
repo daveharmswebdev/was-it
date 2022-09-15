@@ -13,9 +13,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProductsModule } from './products/products.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialExampleModule } from './material.module';
+import { PeopleComponent } from './people/people.component';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
+  declarations: [AppComponent, NxWelcomeComponent, PeopleComponent],
   imports: [
     BrowserModule,
     StoreModule.forRoot(

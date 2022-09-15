@@ -26,6 +26,14 @@ GET http://localhost:3333/api/product
 Accept: application/json
 ###
 
+# curl -X 'GET'
+#  'http://localhost:3333/product'
+#  -H 'accept: */*'
+GET http://localhost:3333/api/product
+accept: */*
+
+###
+
 GET http://localhost:3333/api/product/0591-3973
 Accept: application/json
 ###
@@ -33,6 +41,8 @@ Accept: application/json
 DELETE http://localhost:3333/api/product/0591-3973
 Accept: application/json
 ###
+
+
 
 
 
