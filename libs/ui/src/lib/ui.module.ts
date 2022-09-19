@@ -1,26 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from './product-card/product-card.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { EditProductDialogComponent } from './edit-product-dialog/edit-product-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { PeopleTableComponent } from './people-table/people-table.component';
+import { MaterialExampleModule } from './material.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    MatCardModule,
-    MatButtonModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
+    MaterialExampleModule,
   ],
-  declarations: [ProductCardComponent, EditProductDialogComponent],
-  exports: [ProductCardComponent],
+  declarations: [
+    ProductCardComponent,
+    EditProductDialogComponent,
+    PeopleTableComponent,
+  ],
+  exports: [ProductCardComponent, PeopleTableComponent],
 })
 export class UiModule {}

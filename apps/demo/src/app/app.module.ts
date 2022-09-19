@@ -12,18 +12,13 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductsModule } from './products/products.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialExampleModule } from './material.module';
+import { MaterialExampleModule } from '../../../../libs/ui/src/lib/material.module';
 import { PeopleComponent } from './people/people.component';
 import { PeopleService } from './people/people.service';
-import { PeopleTableComponent } from './people/people-table/people-table.component';
+import { UiModule } from '@was-it/ui';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NxWelcomeComponent,
-    PeopleComponent,
-    PeopleTableComponent,
-  ],
+  declarations: [AppComponent, NxWelcomeComponent, PeopleComponent],
   imports: [
     BrowserModule,
     StoreModule.forRoot(
@@ -44,6 +39,7 @@ import { PeopleTableComponent } from './people/people-table/people-table.compone
     ProductsModule,
     BrowserAnimationsModule,
     MaterialExampleModule,
+    UiModule,
   ],
   providers: [PeopleService],
   bootstrap: [AppComponent],
