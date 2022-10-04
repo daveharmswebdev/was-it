@@ -20,7 +20,10 @@ export class PeopleTableComponent {
   set people(value: IUser[]) {
     if (value) {
       this._dataSource = new MatTableDataSource<IUser>(value);
-      this.dataSource.paginator = this.paginator;
+
+      setTimeout(() => {
+        this.dataSource.paginator = this.paginator;
+      }, 1);
     }
   }
 

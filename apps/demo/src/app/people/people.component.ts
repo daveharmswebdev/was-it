@@ -8,11 +8,11 @@ import { PeopleService } from './people.service';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class PeopleComponent implements OnInit {
-  people$ = this.peopleService.getUsers();
+  people$ = this.peopleService.users$;
 
   constructor(private peopleService: PeopleService) {}
 
   ngOnInit(): void {
-    this.people$.subscribe(console.log);
+    this.peopleService.getUsers();
   }
 }

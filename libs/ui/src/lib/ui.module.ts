@@ -6,6 +6,7 @@ import { EditProductDialogComponent } from './edit-product-dialog/edit-product-d
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PeopleTableComponent } from './people-table/people-table.component';
 import { MaterialExampleModule } from './material.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { MaterialExampleModule } from './material.module';
     FormsModule,
     ReactiveFormsModule,
     MaterialExampleModule,
+    RouterModule,
   ],
   declarations: [
     ProductCardComponent,

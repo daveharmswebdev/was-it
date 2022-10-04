@@ -3,5 +3,5 @@ export interface IUser {
 
   email: string;
 
-  zipCode: string;
+  zipCode: string | null;
 }

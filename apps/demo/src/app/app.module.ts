@@ -12,13 +12,19 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductsModule } from './products/products.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialExampleModule } from '../../../../libs/ui/src/lib/material.module';
 import { PeopleComponent } from './people/people.component';
 import { PeopleService } from './people/people.service';
-import { UiModule } from '@was-it/ui';
+import { MaterialExampleModule, UiModule } from '@was-it/ui';
+import { UserResolver } from './people/user.resolver';
+import { UserComponent } from './people/user/user.component';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent, PeopleComponent],
+  declarations: [
+    AppComponent,
+    NxWelcomeComponent,
+    PeopleComponent,
+    UserComponent,
+  ],
   imports: [
     BrowserModule,
     StoreModule.forRoot(
@@ -41,7 +47,7 @@ import { UiModule } from '@was-it/ui';
     MaterialExampleModule,
     UiModule,
   ],
-  providers: [PeopleService],
+  providers: [PeopleService, UserResolver],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
